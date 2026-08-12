@@ -1,0 +1,46 @@
+name: Dataway Daily Research
+
+on:
+  schedule:
+    - cron: "30 3 * * *" # 09:00 IST (UTC+05:30)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: youtube_architect
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+      DATAWAY_LLM_MODEL: ${{ secrets.DATAWAY_LLM_MODEL }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run Dataway research
+        run: uv run python -m youtube_architect.run_daily
+
+      - name: Commit updated research state
+        run: |
+          git config user.name "dataway-agent"
+          git config user.email "dataway-agent@users.noreply.github.com"
+          git add knowledge/dataway_state.json runs/
+          git diff --cached --quiet || git commit -m "chore: update Dataway daily research state"
+          git push
