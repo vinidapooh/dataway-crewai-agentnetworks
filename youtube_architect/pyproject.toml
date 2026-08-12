@@ -1,12 +1,13 @@
 [project]
 name = "youtube_architect"
 version = "0.1.0"
-description = "youtube_architect using crewAI"
+description = "Dataway autonomous research and learning system using CrewAI"
 authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
     "crewai-tools>=1.14.3",
     "crewai[tools]==1.14.3",
+    "tavily-python>=0.7.0",
     "duckduckgo-search>=8.1.1",
     "langchain-openai>=1.2.1",
 ]
@@ -18,6 +19,7 @@ train = "youtube_architect.main:train"
 replay = "youtube_architect.main:replay"
 test = "youtube_architect.main:test"
 run_with_trigger = "youtube_architect.main:run_with_trigger"
+dataway_daily = "youtube_architect.run_daily:run_daily"
 
 [build-system]
 requires = ["hatchling"]
