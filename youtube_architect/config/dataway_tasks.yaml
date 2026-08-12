@@ -1,0 +1,61 @@
+discover_signals:
+  description: >
+    Discover meaningful developments across AI, analytics, data engineering and adjacent
+    fields that could matter to data professionals. Compare discoveries with persistent
+    state so repeated stories update existing topics rather than create duplicates.
+  expected_output: >
+    A structured list of candidate signals with title, category, evidence, novelty,
+    analyst relevance, potential Dataway angle and recommended next action.
+
+analyze_candidates:
+  description: >
+    Evaluate candidate signals using the Dataway mission and score audience relevance,
+    learning value, current interest, evergreen value, demonstration potential,
+    source quality and prerequisite burden. Identify which candidates deserve research.
+  expected_output: >
+    Ranked candidate topics with scores, rationale, prerequisites, downstream concepts
+    and a status of research-now, watch, defer or reject.
+
+map_curriculum:
+  description: >
+    For research-now and watch candidates, determine where each topic fits in the Dataway
+    learning graph. Detect duplicates, missing prerequisites and useful connections between
+    analytics, data engineering and AI.
+  expected_output: >
+    Curriculum mapping for each candidate including prerequisites, current position,
+    downstream concepts and recommended sequence.
+
+find_sources:
+  description: >
+    For promising topics, discover high-quality sources needed to understand the topic.
+    Prefer primary or authoritative material and include enough context for the creator
+    to decide what to study first.
+  expected_output: >
+    A source list per topic with source type, title, URL, authority/relevance rationale,
+    concepts covered and recommended reading order.
+
+build_learning_brief:
+  description: >
+    Build a creator-first learning brief for selected topics. Explain what the concept is,
+    why it exists, how it works at an appropriate technical depth, what an analyst already
+    understands that maps to it, where analogies break, common misconceptions, and what
+    should be demonstrated with a table or document.
+  expected_output: >
+    A detailed learning brief suitable for the creator to study before deciding whether
+    the topic is ready for a Dataway video.
+
+build_content_plan:
+  description: >
+    For topics marked understood/ready by the creator, create a focused content plan.
+    Define one focal question, a whiteboard sequence, dataset/document demonstration,
+    talking points, possible YouTube packaging and an X angle. Do not write a full script.
+  expected_output: >
+    A concise content plan that can be used as the creator's private recording reference.
+
+evaluate_run:
+  description: >
+    Evaluate the day's process. Detect duplicate topics, weak or redundant sources,
+    unsupported claims, excessive hype, poor analyst relevance and curriculum problems.
+    Recommend bounded changes to future discovery and evaluation behavior.
+  expected_output: >
+    A daily evaluation with failures, lessons, metrics and proposed course corrections.
