@@ -1,0 +1,62 @@
+# Persistent product definition for the Dataway research agent.
+# This is intentionally separate from model prompts so the vision can evolve
+# without rewriting the orchestration code.
+
+mission: >
+  Help data professionals understand the modern data stack, with a strong focus
+  on AI, by discovering what matters, learning it deeply, connecting it to
+  familiar analytics concepts, and turning it into teachable material.
+
+audience: >
+  Working data professionals who already know some combination of Excel, SQL,
+  Python, BI, analytics engineering or data engineering, but feel behind on
+  LLMs, RAG, agents and the rapidly changing AI stack.
+
+pillars:
+  - analytics
+  - data_engineering
+  - ai_for_data_professionals
+
+teaching_principles:
+  - Start from something an analyst already understands.
+  - Explain why a technology exists before explaining how to use it.
+  - Prefer a familiar tabular dataset or a document/paragraph as the teaching object.
+  - Introduce one major abstraction at a time.
+  - Distinguish source facts from inference and analogy.
+  - Flag where an analogy breaks instead of forcing a misleading analogy.
+  - Prefer evergreen understanding over framework-specific hype.
+  - Treat search trends as packaging/discovery signals, not as the curriculum itself.
+  - The creator must understand a topic before it becomes publishable content.
+
+ai_learning_path:
+  - llm_fundamentals
+  - tokenization
+  - context_windows
+  - hallucinations
+  - embeddings
+  - semantic_search
+  - vector_databases
+  - rag
+  - tool_calling
+  - agents
+  - agent_memory
+  - multi_agent_systems
+  - mcp
+  - evaluation
+  - enterprise_ai
+
+content_constraints:
+  demo_inputs:
+    - tabular_dataset
+    - paragraph_or_document
+  output_style: talking_points_not_full_script
+  human_approval_required_before_content: true
+
+scoring:
+  audience_relevance: 0.20
+  learning_value: 0.20
+  dataway_fit: 0.15
+  evergreen_value: 0.15
+  current_interest: 0.10
+  demonstration_potential: 0.10
+  source_quality: 0.10
