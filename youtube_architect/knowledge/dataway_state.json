@@ -1,16 +1,28 @@
 {
-  "version": 1,
+  "version": 2,
   "last_run": null,
-  "topics": {},
-  "sources": {},
+  "topics": {
+    "why-ai-is-changing-analytics": {"title": "Why AI is changing analytics", "status": "current", "curriculum_position": 1, "prerequisites": [], "downstream_concepts": ["llms", "ai-assisted-analytics", "agents"]},
+    "llms": {"title": "What is an LLM? Data -> ML -> LLM", "status": "planned", "curriculum_position": 2, "prerequisites": ["why-ai-is-changing-analytics"], "downstream_concepts": ["how-llms-process-information", "tokenization", "context"]},
+    "how-llms-process-information": {"title": "How LLMs process information", "status": "planned", "curriculum_position": 3, "prerequisites": ["llms"], "downstream_concepts": ["tokenization", "context"]},
+    "tokenization": {"title": "Feed your AI/LLM data with tokens: tokenization", "status": "planned", "curriculum_position": 4, "prerequisites": ["llms", "how-llms-process-information"], "downstream_concepts": ["context", "embeddings", "cost-and-context"]},
+    "context": {"title": "Context windows and prompting", "status": "planned", "curriculum_position": 5, "prerequisites": ["tokenization"], "downstream_concepts": ["hallucinations", "rag"]},
+    "hallucinations": {"title": "Why hallucinations happen", "status": "planned", "curriculum_position": 6, "prerequisites": ["llms", "tokenization", "context"], "downstream_concepts": ["embeddings", "rag", "evaluation"]},
+    "embeddings": {"title": "Embeddings and semantic meaning", "status": "planned", "curriculum_position": 7, "prerequisites": ["llms", "tokenization"], "downstream_concepts": ["vector-databases", "rag"]},
+    "vector-databases": {"title": "Vector databases vs standard databases", "status": "planned", "curriculum_position": 8, "prerequisites": ["embeddings"], "downstream_concepts": ["rag", "semantic-search"]},
+    "rag": {"title": "Retrieval-augmented generation (RAG)", "status": "planned", "curriculum_position": 9, "prerequisites": ["embeddings", "vector-databases", "context"], "downstream_concepts": ["agents", "enterprise-ai"]},
+    "agents": {"title": "Agents", "status": "planned", "curriculum_position": 10, "prerequisites": ["llms", "context", "rag"], "downstream_concepts": ["tool-calling", "mcp", "agentic-analytics"]},
+    "tool-calling": {"title": "Tools and tool calling", "status": "planned", "curriculum_position": 11, "prerequisites": ["agents"], "downstream_concepts": ["mcp", "agentic-workflows"]},
+    "mcp": {"title": "Model Context Protocol (MCP)", "status": "planned", "curriculum_position": 12, "prerequisites": ["agents", "tool-calling"], "downstream_concepts": ["agentic-analytics", "enterprise-ai"]},
+    "evaluation-guardrails": {"title": "Evaluation and guardrails", "status": "planned", "curriculum_position": 13, "prerequisites": ["llms", "rag", "agents"], "downstream_concepts": ["ai-native-analytics", "responsible-ai"]},
+    "ai-native-analytics": {"title": "AI-native analytics and enterprise workflows", "status": "planned", "curriculum_position": 14, "prerequisites": ["rag", "agents", "evaluation-guardrails"], "downstream_concepts": []}
+  },
   "signals": {},
+  "sources": {},
   "research_queue": [],
   "learning_queue": [],
   "content_queue": [],
   "feedback": {},
-  "system_metrics": {
-    "duplicate_topics": 0,
-    "low_quality_sources": 0,
-    "research_failures": 0
-  }
+  "system_metrics": {"duplicate_topics": 0, "low_quality_sources": 0, "research_failures": 0, "false_positive_research_now": 0, "curriculum_drift": 0},
+  "run_history": []
 }
