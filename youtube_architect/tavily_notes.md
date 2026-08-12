@@ -1,0 +1,1 @@
+Tavily integration uses the tavily-python package and TAVILY_API_KEY. This file documents the integration choice and is safe to keep in source control.
