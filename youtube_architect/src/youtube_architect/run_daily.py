@@ -14,7 +14,6 @@ RUNS_DIR = ROOT / "runs"
 
 
 def extract_json(text: str) -> dict[str, Any] | None:
-    """Extract the final state JSON even if an LLM accidentally adds a fence."""
     text = text.strip()
     fenced = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.DOTALL)
     candidate = fenced.group(1) if fenced else text
@@ -32,12 +31,21 @@ def extract_json(text: str) -> dict[str, Any] | None:
             return None
 
 
+def _merge_dict_records(old: dict[str, Any], incoming: dict[str, Any]) -> None:
+    for key, value in incoming.items():
+        if isinstance(value, dict) and isinstance(old.get(key), dict):
+            old[key].update(value)
+        else:
+            old[key] = value
+
+
 def merge_state(old: dict[str, Any], patch: dict[str, Any]) -> dict[str, Any]:
-    """Conservatively merge agent-generated memory; never replace the whole state."""
-    for key in ("topics", "sources", "feedback"):
+    """Merge memory conservatively while retaining every discovered signal."""
+    for key in ("topics", "sources", "signals", "feedback"):
         incoming = patch.get(key)
         if isinstance(incoming, dict):
-            old.setdefault(key, {}).update(incoming)
+            old.setdefault(key, {})
+            _merge_dict_records(old[key], incoming)
 
     for key in ("research_queue", "learning_queue", "content_queue"):
         incoming = patch.get(key)
@@ -53,8 +61,9 @@ def merge_state(old: dict[str, Any], patch: dict[str, Any]) -> dict[str, Any]:
 
 def run_daily() -> str:
     state = load_state()
-    crew = build_crew(state_for_prompt(state))
-    result = crew.kickoff(inputs={"state_snapshot": state_for_prompt(state)})
+    snapshot = state_for_prompt(state)
+    crew = build_crew(snapshot)
+    result = crew.kickoff(inputs={"state_snapshot": snapshot})
     raw = getattr(result, "raw", str(result))
 
     now = datetime.now(timezone.utc)
