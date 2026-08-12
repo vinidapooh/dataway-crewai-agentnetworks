@@ -1,0 +1,39 @@
+research_task:
+research_task:
+  description: >
+    1. Search for the latest trends, news, and common pain points regarding "{topic}" for the year 2026.
+    2. Identify the top 5 high-volume search keywords or phrases.
+    3. For each keyword, brainstorm a unique video concept that would appeal to a technical audience.
+  expected_output: >
+    A Markdown formatted report with two main sections:
+    ## Trending Keywords
+    - A bulleted list of the top 5 keywords with a brief explanation of why they are trending.
+    
+    ## Video Content Ideas
+    - A list of 5 specific video titles and a 2-sentence 'angle' for each, based on the identified keywords.
+  agent: trend_analyst
+  output_file: 'market_research.md'
+
+scripting_task:
+  description: >
+    Using the research brief, write a 10-minute video script for "{topic}". 
+    Include a high-stakes hook and 3 major "Value Bombs."
+  expected_output: >
+    A full Markdown script with B-Roll suggestions in brackets [ ].
+  agent: narrative_designer
+
+seo_task:
+  description: >
+    Generate 5 viral titles and an SEO description for the final script. 
+    Provide 2 thumbnail concepts based on the script's core conflict.
+  expected_output: >
+    A final metadata package (Titles, Description, Tags, Thumbnail Prompts).
+  agent: seo_strategist
+
+scripting_task:
+  description: >
+    ... I want you to list out the main keywords and concepts related to "{topic}" that should be included in the video script.
+  expected_output: >
+    A list of the main keywords and concepts related to "{topic}".
+  agent: narrative_designer
+  output_file: 'final_video_script.md' # This creates a file in your project root
