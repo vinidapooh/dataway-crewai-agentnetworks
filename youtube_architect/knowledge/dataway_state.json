@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "last_run": null,
+  "topics": {},
+  "sources": {},
+  "signals": {},
+  "research_queue": [],
+  "learning_queue": [],
+  "content_queue": [],
+  "feedback": {},
+  "system_metrics": {
+    "duplicate_topics": 0,
+    "low_quality_sources": 0,
+    "research_failures": 0
+  }
+}
